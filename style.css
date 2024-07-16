@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400,500,700&display=swap");
+
+:root {
+  --very-dark-gray: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+
+  --font-size: 18px;
+  --border-radius: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  min-height: 100dvh;
+}
+
+/* Header */
+#header {
+  background-image: url("/images/pattern-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 40dvh;
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
+
+h1 {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: min(90%, 450px);
+  margin-inline: auto;
+}
+
+input {
+  flex: 1;
+  padding-inline: 1em;
+  font-weight: 500;
+  font-size: 1em;
+  border: none;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  outline: none;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: var(--dark-gray);
+  font-size: 0.75em;
+}
+
+button {
+  background-color: var(--very-dark-gray);
+  height: 100%;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+/* Main */
+
+/* locationInfo */
+
+.location-info {
+  display: none;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: stretch;
+  padding: 1em;
+  background-color: white;
+  border-radius: var(--border-radius);
+  width: min(90%, 800px);
+  margin: 0 auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 999;
+}
+
+.location-info__item {
+  flex: 1;
+}
+
+.location-info__item > p {
+  font-size: 1em;
+  color: var(--very-dark-gray);
+  font-weight: 700;
+}
+
+.location-info__item + .location-info__item {
+  border-left: 1px solid var(--dark-gray);
+  padding-left: 1em;
+}
+
+h2 {
+  font-size: 0.6em;
+  text-align: start;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--dark-gray);
+}
+
+/* map */
+#map {
+  height: 60dvh;
+}
+
+@media (max-width: 768px) {
+  #header {
+    background-image: url("/images/pattern-bg-mobile.png");
+  }
+
+  button {
+    padding-block: 1em;
+  }
+  .location-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .location-info__item + .location-info__item {
+    border-left: none !important;
+  }
+
+  .location-info__item p {
+    text-align: center;
+  }
+}
